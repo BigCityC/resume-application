@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Apply for JOB TITLE HERE at COMPANY</title>
+  <link href='style.css' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com' rel='preconnect'>
+  <link crossorigin href='https://fonts.gstatic.com' rel='preconnect'>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito+Sans:wght@300&display=swap'
+        rel='stylesheet'>
+</head>
+<body>
+<header class='header'>
+  <div class='background-image'></div>
+  <div class='header-information wrapper '>
+    <img alt='company logo' class='company-logo' src=''/>
+    <h1 class='job-title'></h1>
+  </div>
+</header>
+<main class='flex wrapper'>
+  <article class='job-info'>
+    <div>
+      <img alt='location-svg' height='16' src='./img/location-sign.svg' width='16'>
+      <span class='location-info'></span>
+    </div>
+    <section id='general-description'></section>
+    <section id='responsibilities'>
+      <h4 class='section-header'>Day to day, you will:</h4>
+    </section>
+
+    <section id='qualities'>
+      <h4 class='section-header'>We'd love to talk if you are:</h4>
+    </section>
+
+    <section id='bonus'>
+      <h4 class='section-header'>Bonus points for having:</h4>
+    </section>
+
+    <section id='benefits'>
+      <h4 class='section-header'>Benefits:</h4>
+    </section>
+
+    <section id='about'>
+      <h4 class='section-header'>About us:</h4>
+    </section>
+
+  </article>
+  <article class='candidate-info'>
+    <section>
+      <form action='' id='form'>
+        <h4>Apply</h4>
+        <label for='fname'></label><input id='fname' name='fname' placeholder='First Name' required type='text' value=''>
+        <label for='lname'></label><input id='lname'  name='lname' placeholder='Last Name' required type='text' value=''>
+        <label for='linkedin'></label><input id='linkedin' name='linkedin' placeholder='LinkedIn Profile URL' required type='url' value=''>
+        <label for='email'></label><input id='email' name='email' placeholder='Email' required type='email' value=''>
+        <label for='phone'></label><input id='phone' name='phone' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' placeholder='Phone Number' value=''
+                                          type='tel'>
+        <label for='extra-info'>
+          <input id='extra-info' placeholder='Anything else we should know?' type='text' value=''>
+        </label>
+
+        <section class='resume'>
+          <p>Resume (optional)</p>
+          <div class='background'>
+            <p>Drag and drop resume here<br>or<br></p>
+            <label class='custom-file-upload' for='resume'>
+              <span>Browse Files</span>
+              <input id='resume' type='file'>
+            </label>
+            <p>(PDF only, 5MB maximum)</p>
+          </div>
+        </section>
+
+        <button  type='submit' class='submit-btn'>APPLY</button>
+      </form>
+    </section>
+  </article>
+</main>
+
+<script src='main.js'></script>
+</body>
+</html>

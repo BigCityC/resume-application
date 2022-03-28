@@ -1,0 +1,168 @@
+$font-stack-pr: "Inter", sans-serif;
+$font-stack-sec: "Nunito Sans", sans-serif;
+$layout-breakpoint-medium: 768px;
+$layout-breakpoint-large: 1024px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-stack-pr;
+  background-color: whitesmoke;
+  line-height: 1.5; //questionable
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+
+}
+
+.header {
+  position: relative;
+  color: #051534;
+
+  .background-image {
+    background: url('img/background-header.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: .5;
+    position: absolute;
+    inset: 0;
+  }
+
+  .header-information {
+    z-index: 1;
+    position: relative;
+
+    .company-logo {
+      width: clamp(4.6rem, 20%, 6.25rem);
+      margin-bottom: 5px;
+      max-height: 2rem;
+      height: auto;
+    }
+
+    .job-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+
+      @media (min-width: $layout-breakpoint-medium) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.flex {
+  height: 100vh;
+  @media (min-width: $layout-breakpoint-large) {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+
+    & > * {
+      flex:1;
+    }
+  }
+}
+
+.job-info {
+  color: darkslategray;
+  padding-top: 1.5rem;
+
+  & > * {
+    margin-bottom: 1rem;
+  }
+
+  .section-header {
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .location-info {
+    text-transform: capitalize;
+    font-size: 0.875rem;
+  }
+
+  .list {
+    padding-left: 2.5rem;
+  }
+
+}
+
+//candidate area
+.candidate-info {
+  @media (min-width: $layout-breakpoint-large) {
+
+  }
+}
+
+form {
+  background-color: white;
+  padding: 1.5rem;
+  border: 1px solid rgba(207,215,224);
+  border-radius: 2%;
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  label:not(.custom-file-upload)  > * {
+      display: block;
+  }
+
+  input:not(input[type="file"])  {
+    display: block;
+    width: 100%;
+    margin-block: 5%;
+    padding: 2%;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    color: white;
+    padding: .5rem 3rem;
+    background-color: #3BA384;
+    border: none;
+    font-size: .875rem;
+    cursor: pointer;
+  }
+}
+
+.resume {
+  display: block;
+  padding-block: 2rem;
+
+  .background {
+    border: 2px dashed lightgrey;
+    background-color: #F5F5F5;
+    text-align: center;
+    color: #171b1f;
+    cursor: pointer;
+    padding-block: 1.35rem;
+
+    p {
+      font-family: $font-stack-sec;
+      font-size: 1.125rem;
+      color: #171b1f;
+    }
+
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .custom-file-upload {
+    background-color:white;
+    color: #2d687c;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: .5rem 1.25rem;
+    cursor: pointer;
+  }
+}
