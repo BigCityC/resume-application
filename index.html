@@ -56,16 +56,16 @@
         <label for='phone'></label><input id='phone' name='phone' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' placeholder='Phone Number' value=''
                                           type='tel'>
         <label for='extra-info'>
-          <input id='extra-info' placeholder='Anything else we should know?' type='text' value=''>
+          <input id='extra-info' name='extra-info' placeholder='Anything else we should know?' type='text' value=''>
         </label>
 
         <section class='resume'>
           <p>Resume (optional)</p>
           <div class='background'>
             <p>Drag and drop resume here<br>or<br></p>
-            <label class='custom-file-upload' for='resume'>
+            <label class='custom-file-upload' for='file'>
               <span>Browse Files</span>
-              <input id='resume' type='file'>
+              <input id='file' name='resume' type='file'>
             </label>
             <p>(PDF only, 5MB maximum)</p>
           </div>
@@ -77,6 +77,6 @@
   </article>
 </main>
 
-<script src='main.js'></script>
+<script type="module" src='main.js'></script>
 </body>
 </html>
