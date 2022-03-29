@@ -12,11 +12,26 @@ const about = document.querySelector('#about');
 const form = document.querySelector('#form');
 const formSubmitBtn = document.querySelector('.submit-btn');
 
+//on form Submission
 formSubmitBtn.addEventListener('click',function(event){
-  event.preventDefault();
+  formValidation()
+  event.preventDefault()
   const formData = new FormData(form)
   console.log(serialize(formData))
 });
+
+
+//form validation
+function formValidation(){
+  //check required fields are filled in
+  const inputs = document.getElementsByTagName('input')
+  const requiredInputs = [...inputs].filter(input => input.hasAttribute('required'))
+  for (let input of requiredInputs){
+    if (input.value === '' || input.value == null){
+      input.parentNode.classList.add('input-error')
+    }
+  }
+}
 
 window.addEventListener('load', (event) => {
   fillCompanyInfo();

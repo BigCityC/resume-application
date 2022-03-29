@@ -93,20 +93,37 @@ form h4 {
 form label:not(.custom-file-upload) > * {
   display: block;
 }
-form input:not(input[type=file]) {
+form input:not(input[type=file]):not(input[type=submit]) {
   display: block;
   width: 100%;
-  margin-block: 5%;
+  margin-top: 3%;
   padding: 2%;
   font-size: 1rem;
 }
+form .input-error input {
+  border: 2px solid red;
+}
+form .input-error input::placeholder {
+  color: red;
+}
+form .input-error small {
+  color: red;
+  margin-left: 2%;
+}
 form .submit-btn {
   color: white;
+  display: block;
+  margin: 0 auto;
   padding: 0.5rem 3rem;
   background-color: #3BA384;
   border: none;
+  width: 40%;
   font-size: 0.875rem;
+  border-radius: 4px;
   cursor: pointer;
+}
+form .submit-btn:hover {
+  background-color: #48c6a0;
 }
 
 .resume {
@@ -125,6 +142,7 @@ form .submit-btn {
   font-family: "Nunito Sans", sans-serif;
   font-size: 1.125rem;
   color: #171b1f;
+  margin-block: 0.5rem;
 }
 .resume input[type=file] {
   display: none;
@@ -133,9 +151,12 @@ form .submit-btn {
   background-color: white;
   color: #2d687c;
   border: 1px solid #ccc;
-  display: inline-block;
   padding: 0.5rem 1.25rem;
   cursor: pointer;
+  border-radius: 4px;
+}
+.resume .custom-file-upload:hover {
+  background-color: #d7d7d7;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -115,21 +115,41 @@ form {
       display: block;
   }
 
-  input:not(input[type="file"])  {
+  input:not(input[type="file"]):not(input[type="submit"])  {
     display: block;
     width: 100%;
-    margin-block: 5%;
+    margin-top: 3%;
     padding: 2%;
     font-size: 1rem;
   }
 
+  .input-error {
+    input {
+      border: 2px solid red;
+    }
+    input::placeholder {
+      color: red;
+    }
+    small {
+      color: red;
+      margin-left: 2%
+    }
+  }
+
   .submit-btn {
     color: white;
+    display: block;
+    margin : 0 auto;
     padding: .5rem 3rem;
     background-color: #3BA384;
     border: none;
+    width: 40%;
     font-size: .875rem;
+    border-radius: 4px;
     cursor: pointer;
+    &:hover {
+      background-color: #48c6a0;
+    }
   }
 }
 
@@ -149,8 +169,8 @@ form {
       font-family: $font-stack-sec;
       font-size: 1.125rem;
       color: #171b1f;
+      margin-block: .5rem;
     }
-
   }
 
   input[type="file"] {
@@ -161,8 +181,11 @@ form {
     background-color:white;
     color: #2d687c;
     border: 1px solid #ccc;
-    display: inline-block;
     padding: .5rem 1.25rem;
     cursor: pointer;
+    border-radius: 4px;
+    &:hover {
+      background-color: #d7d7d7;
+    }
   }
 }
