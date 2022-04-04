@@ -1,4 +1,5 @@
 import { serialize } from './helper-func.js';
+import axios from 'axios'
 
 const company_logo = document.querySelector('.company-logo')
 const job_title = document.querySelector('.job-title')
@@ -11,6 +12,11 @@ const benefits = document.querySelector('#benefits');
 const about = document.querySelector('#about');
 const form = document.querySelector('#form');
 const formSubmitBtn = document.querySelector('.submit-btn');
+
+//setup axios
+const api = axios.create({
+  baseURL: 'http://localhost:5000/'
+})
 
 //on form Submission
 formSubmitBtn.addEventListener('click',function(event){
@@ -35,7 +41,18 @@ function formValidation(){
 
 window.addEventListener('load', (event) => {
   fillCompanyInfo();
+  getCompanyInfo()
+    .then(res=> {
+    console.log(res.data)
+  })
+    .catch(error => {
+      console.log(error)
+    })
 });
+
+function getCompanyInfo(){
+  return api.get('/')
+}
 
 function fillCompanyInfo(){
   company_logo.src = company.description.logo;
@@ -68,11 +85,6 @@ function createUL(part,) {
 
 
 
-
-
-
-
-
 //data
 const candidates = [
   {
@@ -82,7 +94,7 @@ const candidates = [
     applied: [1, 4, 7],
     email: 'courtneywalsh05@gmail.com',
     linkedin: 'https://https://www.linkedin.com/in/courtney-a-walsh/',
-    phoneNumber: '513-555-4664',
+    phone: '513-555-4664',
     description: 'I am a javascript developer.',
     resume: {
       file: 'https://here'
@@ -95,7 +107,7 @@ const candidates = [
     applied: [1, 4, 7],
     email: 'asmith43@gmail.com',
     linkedin: 'https://https://www.linkedin.com/in/anne-smith/',
-    phoneNumber: '513-555-3364',
+    phone: '513-555-3364',
     description: 'I am a nodeJS developer.',
     resume: {
       file: 'https://here'
@@ -108,7 +120,7 @@ const candidates = [
     applied: [1, 4, 7],
     email: 'mmitalski@yahoo.com',
     linkedin: 'https://https://www.linkedin.com/in/marc-mitalski/',
-    phoneNumber: '513-555-4124',
+    phone: '513-555-4124',
     description: 'I am a C# developer.',
     resume: {
       file: 'https://here'
@@ -121,7 +133,7 @@ const company =
     name: 'Assemble',
     id: 1,
     location: 'remote',
-    candidates: [1, 3, 5],
+    candidates: [],
     description: {
       logo: 'https://storage.googleapis.com/dover-django/client-logos/aa5c4cc0-b95e-4de2-843c-efc17014a8f5-logo.png?2cv9ip1st',
       title: 'Fullstack Engineer',
@@ -152,7 +164,5 @@ const company =
         'Company meals and cultural events',
       ],
       about: 'Assemble is working to accelerate the world\'s transition to a future that is fair, equitable, consistent, competitive, and explainable. Founded in summer 2020 by early-stage operators, Assemble is based in San Francisco, CA with a presence in Denver, CO.'
-    },
-    //check out google forms and use poll linkedin structire
-    jobListing: ''
+    }
   }
