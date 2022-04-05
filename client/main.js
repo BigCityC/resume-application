@@ -1,17 +1,19 @@
 import { serialize } from './helper-func.js'
 import axios from 'axios'
 
-const company_logo = document.querySelector('.company-logo')
-const job_title = document.querySelector('.job-title')
-const job_location = document.querySelector('.location-info')
-const general_description = document.querySelector('#general-description')
-const responsibilities = document.querySelector('#responsibilities')
-const qualities = document.querySelector('#qualities')
-const bonus = document.querySelector('#bonus')
-const benefits = document.querySelector('#benefits')
-const about = document.querySelector('#about')
 const form = document.querySelector('#form')
 const formSubmitBtn = document.querySelector('.submit-btn')
+const logo = document.querySelector('.company-logo')
+const job_description = {
+  title: document.querySelector('.job-title'),
+  location: document.querySelector('.location-info'),
+  general_description: document.querySelector('#general-description'),
+  responsibilities: document.querySelector('#responsibilities'),
+  qualities: document.querySelector('#qualities'),
+  bonus: document.querySelector('#bonus'),
+  benefits: document.querySelector('#benefits'),
+  about: document.querySelector('#about')
+}
 
 //setup axios
 const api = axios.create({
@@ -26,6 +28,9 @@ formSubmitBtn.addEventListener('click', function (event) {
   console.log(serialize(formData))
 })
 
+window.addEventListener('load', (event) => {
+  getCompanyInfo()
+})
 
 //form validation
 function formValidation () {
@@ -39,10 +44,6 @@ function formValidation () {
   }
 }
 
-window.addEventListener('load', (event) => {
-  getCompanyInfo()
-})
-
 function getCompanyInfo () {
   return api.get('/')
     .then(res => {
@@ -54,17 +55,15 @@ function getCompanyInfo () {
 }
 
 function fillCompanyInfo (company) {
-  console.log(company)
-  company_logo.src = company.logo
-  job_title.innerHTML = company.description[0].title
-  job_location.innerHTML = company.description[0].location
-  general_description.innerHTML = company.description[0].general_description
-  responsibilities.appendChild(createUL(company.description[0].responsibilities))
-  qualities.appendChild(createUL(company.description[0].qualities))
-  bonus.appendChild(createUL(company.description[0].bonus))
-  benefits.appendChild(createUL(company.description[0].benefits))
-  about.innerHTML = company.description[0].about
-
+  logo.src = company.logo
+  for (let [key,value] of Object.entries(job_description)){
+    if (typeof company.description[key] === 'string'){
+      value.innerText = company.description[key];
+    }
+    else if (typeof company.description[key] === 'object'){
+      value.appendChild(createUL(company.description[key]))
+    }
+  }
 }
 
 function createUL (part) {

@@ -16,7 +16,7 @@ const companySchema = new mongoose.Schema({
   name: String,
   logo: String,
   candidates: [{ type: mongoose.Schema.Types.ObjectId }],
-  description: [jobSchema]
+  description: jobSchema
 })
 
 const candidateSchema = new mongoose.Schema({
