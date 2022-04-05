@@ -2,27 +2,19 @@ import mongoose from 'mongoose'
 
 
 const jobSchema = new mongoose.Schema({
-  general_description: {
-    type: String
-  },
-  responsibilities: {
-    type: Array
-  },
-  qualities: {
-    type: Array
-  },
-  bonus: {
-    type: Array
-  },
-  benefits: {
-    type: Array
-  },
+  title: String,
+  location: String,
+  general_description:String,
+  responsibilities: Array,
+  qualities: Array,
+  bonus: Array,
+  benefits: Array,
   about: String
 })
 
 const companySchema = new mongoose.Schema({
   name: String,
-  location: String,
+  logo: String,
   candidates: [{ type: mongoose.Schema.Types.ObjectId }],
   description: [jobSchema]
 })

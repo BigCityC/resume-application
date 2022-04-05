@@ -14,26 +14,8 @@ dotenv.config();
 
 //routes
 app.get('/',  async (req, res) => {
-  const data = await Company.findById('624472b6e403daeae3c2527b');
-  console.log(data)
-  res.send('test')
-})
-const assemble2 = new Company({
-  name: 'Assemble2',
-  location: 'onsite',
-  candidates: [],
-  description:[{
-    general_description: 'general way to describe your company',
-    responsibilities: ['three', 'four'],
-    qualities: ['five','six'],
-    bonus: ['seven','eight'],
-    benefits: ['nine'],
-    about: 'let me tell you something about us.'
-  }]
-})
-
-assemble2.save((err)=> {
-  if (err) console.log('err: ')
+  const data = await Company.findById('624c62c0b12a70eacbf0bbe4');
+  res.send(data)
 })
 
 //listen to server
