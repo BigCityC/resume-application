@@ -1,22 +1,29 @@
 import express from 'express';
+import expressLayouts from 'express-ejs-layouts'
 import cors from 'cors';
+import path from 'path';
+const __dirname = path.resolve();
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
-import { Company } from './models/company.js'
+//import routes
+import { indexRouter } from './routes/index.js'
+import { applicationRouter } from './routes/application.js'
+
 //setup
 const app = express()
+app.set('view engine', 'ejs')
+app.set('views', './views')
+app.set('layout', 'layouts/layout')
+app.set('public', './public')
 const PORT = 5000;
 
 //middleware
-app.use(express.json())
 app.use(cors());
+app.use(expressLayouts)
+app.use(express.static(__dirname))
+app.use('/companies', indexRouter)
+app.use('/companies/apply', applicationRouter)
 dotenv.config();
-
-//routes
-app.get('/',  async (req, res) => {
-  const data = await Company.findById('624c62c0b12a70eacbf0bbe4');
-  res.send(data)
-})
 
 //listen to server
 app.listen(PORT, () => {

@@ -21,7 +21,7 @@ body {
   color: #051534;
 }
 .header .background-image {
-  background: url("img/background-header.jpg") no-repeat center center;
+  background: url("/public/img/background-header.jpg") no-repeat center center;
   background-size: cover;
   opacity: 0.5;
   position: absolute;
@@ -37,7 +37,24 @@ body {
   max-height: 2rem;
   height: auto;
 }
+.header .header-information .separator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .header-information .separator .back-btn {
+  text-decoration: none;
+  color: black;
+  padding: 15px 40px;
+  background-color: white;
+  border-radius: 2%;
+  border: 1px solid #cfd7e0;
+}
+.header .header-information .separator .back-btn:hover {
+  background-color: whitesmoke;
+}
 .header .header-information .job-title {
+  display: inline;
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -157,6 +174,47 @@ form .submit-btn:hover {
 }
 .resume .custom-file-upload:hover {
   background-color: #d7d7d7;
+}
+
+.company-list h1 {
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.companies {
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.companies li {
+  list-style: none;
+}
+.companies a {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  list-style: none;
+  display: block;
+  margin: 20px 0;
+  background: #f1f1f1;
+  padding: 35px;
+  font-weight: 600;
+  box-shadow: 0px 10px 50px -20px #333;
+}
+.companies a:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+}
+.companies a span {
+  font-size: 18px;
+  display: block;
+  margin-top: 10px;
+  font-weight: normal;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

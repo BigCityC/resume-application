@@ -27,7 +27,7 @@ body {
   color: #051534;
 
   .background-image {
-    background: url('img/background-header.jpg') no-repeat center center;
+    background: url('/public/img/background-header.jpg') no-repeat center center;
     background-size: cover;
     opacity: .5;
     position: absolute;
@@ -45,7 +45,27 @@ body {
       height: auto;
     }
 
+    .separator {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .back-btn {
+        text-decoration: none;
+        color: black;
+        padding: 15px 40px;
+        //border: 2px solid;
+        background-color: white;
+        border-radius: 2%;
+        border: 1px solid rgba(207, 215, 224);
+        &:hover {
+          background-color: whitesmoke;
+        }
+      }
+    }
+
     .job-title {
+      display: inline;
       font-size: 1.5rem;
       font-weight: 600;
 
@@ -64,7 +84,7 @@ body {
     justify-content: center;
 
     & > * {
-      flex:1;
+      flex: 1;
     }
   }
 }
@@ -104,18 +124,18 @@ body {
 form {
   background-color: white;
   padding: 1.5rem;
-  border: 1px solid rgba(207,215,224);
+  border: 1px solid rgba(207, 215, 224);
   border-radius: 2%;
 
   h4 {
     font-size: 1.25rem;
   }
 
-  label:not(.custom-file-upload)  > * {
-      display: block;
+  label:not(.custom-file-upload) > * {
+    display: block;
   }
 
-  input:not(input[type="file"]):not(input[type="submit"])  {
+  input:not(input[type="file"]):not(input[type="submit"]) {
     display: block;
     width: 100%;
     margin-top: 3%;
@@ -127,9 +147,11 @@ form {
     input {
       border: 2px solid red;
     }
+
     input::placeholder {
       color: red;
     }
+
     small {
       color: red;
       margin-left: 2%
@@ -139,7 +161,7 @@ form {
   .submit-btn {
     color: white;
     display: block;
-    margin : 0 auto;
+    margin: 0 auto;
     padding: .5rem 3rem;
     background-color: #3BA384;
     border: none;
@@ -147,6 +169,7 @@ form {
     font-size: .875rem;
     border-radius: 4px;
     cursor: pointer;
+
     &:hover {
       background-color: #48c6a0;
     }
@@ -178,14 +201,65 @@ form {
   }
 
   .custom-file-upload {
-    background-color:white;
+    background-color: white;
     color: #2d687c;
     border: 1px solid #ccc;
     padding: .5rem 1.25rem;
     cursor: pointer;
     border-radius: 4px;
+
     &:hover {
       background-color: #d7d7d7;
     }
+  }
+}
+
+//for index.ejs
+
+.company-list {
+  h1 {
+    text-align: center;
+    font-size: 50px;
+    margin: 20px 0;
+    font-weight: bold;
+  }
+}
+
+.companies {
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    list-style: none;
+    display: block;
+    margin: 20px 0;
+    background: #f1f1f1;
+    padding: 35px;
+    font-weight: 600;
+    box-shadow: 0px 10px 50px -20px #333;
+
+    &:hover {
+      cursor: pointer;
+      background-color: aliceblue;
+    }
+
+    span {
+      font-size: 18px;
+      display: block;
+      margin-top: 10px;
+      font-weight: normal;
+      width: 100%;
+    }
+
   }
 }

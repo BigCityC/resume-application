@@ -1,0 +1,19 @@
+<main class='wrapper'>
+    <div class='company-list'>
+        <h1>Companies Hiring</h1>
+        <ul class='companies'>
+            <% companies.forEach( company => { %>
+
+                <li>
+                    <a href='/companies/apply/<%= company._id%>'>
+                        <%= company.name %>
+                        <span> Currently hiring a  <%= company.description.title %> </span>
+                    </a>
+                </li>
+
+            <% }) %>
+        </ul>
+    </div>
+</main>
+<script>
+</script>
