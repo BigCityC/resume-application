@@ -1,9 +1,9 @@
 <header class='header'>
     <div class='background-image'></div>
     <div class='header-information wrapper '>
-        <img alt='company logo' class='company-logo' src='<%=company.logo%>'/>
+        <img alt='company logo' class='company-logo' src='<%= company.logo %>'/>
         <div class='separator'>
-            <h1 class='job-title'><%=description.title%></h1>
+            <h1 class='job-title'><%= description.title %></h1>
             <a class="back-btn" href='/companies'>Home</a>
         </div>
     </div>
@@ -15,16 +15,16 @@
             <span class='location-info'><%= description.location %></span>
         </div>
         <section id='general-description'>
-            <%=description.general_description%>
+            <%= description.general_description %>
         </section>
         <section id='responsibilities'>
             <h4 class='section-header'>Day to day, you will:</h4>
             <ul class='list'>
-            <% description.responsibilities.forEach( resp => { %>
-                <li>
-                    <%= resp %>
-                </li>
-            <% }) %>
+                <% description.responsibilities.forEach( resp => { %>
+                    <li>
+                        <%= resp %>
+                    </li>
+                <% }) %>
             </ul>
         </section>
 
@@ -63,42 +63,47 @@
 
         <section id='about'>
             <h4 class='section-header'>About us:</h4>
-            <%=description.about%>
+            <%= description.about %>
         </section>
 
     </article>
     <article class='candidate-info'>
         <section>
-            <form action='' id='form'>
+            <form action='/companies/apply/<%=company._id%>' method='post' id='form'>
                 <h4>Apply</h4>
                 <div class='form-field'>
-                    <label for='fname'></label>
-                    <input id='fname' name='fname' placeholder='First Name *' required type='text' value=''>
+                    <label for='firstName'></label>
+                    <input id='firstName' name='firstName' placeholder='First Name *' required type='text' value='Courtney'>
                 </div>
 
                 <div class='form-field'>
-                    <label for='lname'></label>
-                    <input id='lname'  name='lname' placeholder='Last Name *' required type='text' value=''>
+                    <label for='lastName'></label>
+                    <input id='lastName' name='lastName' placeholder='Last Name *' required type='text' value='Walsh'>
                 </div>
 
                 <div class='form-field'>
                     <label for='linkedin'></label>
-                    <input id='linkedin' name='linkedin' placeholder='LinkedIn Profile URL *' title='Please enter a LinkedIn profile' required pattern='^https?://((www|\w\w)\.)?linkedin.com/((in/[^/]+/?)|(pub/[^/]+/((\w|\d)+/?){3}))$' type='url' value='' autocomplete='off'>
+                    <input id='linkedin' name='linkedin' placeholder='LinkedIn Profile URL *'
+                           title='Please enter a LinkedIn profile' required
+                           pattern='^https?://((www|\w\w)\.)?linkedin.com/((in/[^/]+/?)|(pub/[^/]+/((\w|\d)+/?){3}))$'
+                           type='url' value='https://www.linkedin.com/in/courtney-a-walsh/' autocomplete='off'>
                 </div>
 
                 <div class='form-field'>
                     <label for='email'></label>
-                    <input id='email' name='email' placeholder='Email *' required type='email' value=''>
+                    <input id='email' name='email' placeholder='Email *' required type='email' value='courtneywalsh05@gmail.com'>
                 </div>
 
                 <div class='form-field'>
                     <label for='phone'></label>
-                    <input id='phone' name='phone' title='format: xxx-xxx-xxxx' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}' placeholder='Phone Number' value='' type='tel'>
+                    <input id='phone' name='phone' title='format: xxx-xxx-xxxx' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+                           placeholder='Phone Number' value='513-716-4664' type='tel'>
                 </div>
 
                 <div class='form-field'>
-                    <label for='extra-info'></label>
-                    <input id='extra-info' name='extra-info' placeholder='Anything else we should know?' type='text' value=''>
+                    <label for='description'></label>
+                    <input id='description' name='description' placeholder='Anything else we should know?' type='text'
+                           value='nope'>
                 </div>
 
                 <div class='form-field resume'>
@@ -107,14 +112,14 @@
                         <p>Drag and drop resume here<br>or<br></p>
                         <label class='custom-file-upload' for='file'>
                             <span>Browse Files</span>
-                            <input id='file' name='resume' type='file'>
+                            <input id='file' name='file' type='file'>
                         </label>
                         <p>(PDF only, 5MB maximum)</p>
                     </div>
                 </div>
-
+                <input type="hidden" id="companyId" name="companyId" value="<%=company._id%>">
                 <div>
-                    <input type='submit'  value='APPLY' class='submit-btn'>
+                    <input type='submit' value='APPLY' class='submit-btn'>
                 </div>
             </form>
         </section>

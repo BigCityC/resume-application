@@ -42,17 +42,6 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.header .header-information .separator .back-btn {
-  text-decoration: none;
-  color: black;
-  padding: 15px 40px;
-  background-color: white;
-  border-radius: 2%;
-  border: 1px solid #cfd7e0;
-}
-.header .header-information .separator .back-btn:hover {
-  background-color: whitesmoke;
-}
 .header .header-information .job-title {
   display: inline;
   font-size: 1.5rem;
@@ -62,6 +51,18 @@ body {
   .header .header-information .job-title {
     font-size: 2rem;
   }
+}
+
+.back-btn {
+  text-decoration: none;
+  color: black;
+  padding: 15px 40px;
+  background-color: white;
+  border-radius: 2%;
+  border: 1px solid #cfd7e0;
+}
+.back-btn:hover {
+  background-color: whitesmoke;
 }
 
 .flex {
@@ -196,18 +197,18 @@ form .submit-btn:hover {
 .companies a {
   text-decoration: none;
   color: black;
+  background-color: #64caeb;
   font-size: 22px;
   list-style: none;
   display: block;
   margin: 20px 0;
-  background: #f1f1f1;
   padding: 35px;
   font-weight: 600;
   box-shadow: 0px 10px 50px -20px #333;
 }
 .companies a:hover {
   cursor: pointer;
-  background-color: aliceblue;
+  background-color: #A2DBEEFF;
 }
 .companies a span {
   font-size: 18px;
@@ -215,6 +216,37 @@ form .submit-btn:hover {
   margin-top: 10px;
   font-weight: normal;
   width: 100%;
+}
+
+.success-wrapper {
+  height: 100vh;
+  text-align: center;
+  background-color: lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-wrapper .message {
+  outline: 4px dotted blue;
+  padding: 20px;
+}
+.success-wrapper .message h1 {
+  margin-top: 0px;
+  margin-left: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: -4px 4px #ef3550, -8px 8px #f48fb1, -12px 12px #7e57c2, -16px 16px #2196f3, -20px 20px #26c6da, -24px 24px #43a047, -28px 28px #eeff41, -32px 32px #f9a825, -36px 36px #ff5722;
+}
+.success-wrapper .message p {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

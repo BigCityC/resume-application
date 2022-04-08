@@ -38,8 +38,8 @@ const candidateSchema = new mongoose.Schema({
   },
   phone: String,
   description: String,
-  resume: String,
-  applied: [{ type: mongoose.Schema.Types.ObjectId }]
+  file: String,
+  applied: [{ type: String }]
 })
 
 const Candidate = mongoose.model('Candidate', candidateSchema)

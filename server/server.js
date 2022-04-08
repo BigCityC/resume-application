@@ -8,6 +8,7 @@ import dotenv from 'dotenv'
 //import routes
 import { indexRouter } from './routes/index.js'
 import { applicationRouter } from './routes/application.js'
+import { successRouter } from './routes/success.js'
 
 //setup
 const app = express()
@@ -19,10 +20,15 @@ const PORT = 5000;
 
 //middleware
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}))
 app.use(expressLayouts)
 app.use(express.static(__dirname))
 app.use('/companies', indexRouter)
 app.use('/companies/apply', applicationRouter)
+app.use('/companies/apply', successRouter)
 dotenv.config();
 
 //listen to server
