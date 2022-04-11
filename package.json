@@ -14,9 +14,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "nodemon server/server.js",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
     "postinstall": "ng build"
+  },
+  "engines" : {
+    "node" : ">=14.15.4"
   },
   "author": "",
   "license": "ISC",

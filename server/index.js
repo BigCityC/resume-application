@@ -6,7 +6,7 @@ const __dirname = path.resolve();
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 //import routes
-import { indexRouter } from './routes/index.js'
+import { indexRouter } from './routes/homepage.js'
 import { applicationRouter } from './routes/application.js'
 import { successRouter } from './routes/success.js'
 
@@ -27,7 +27,7 @@ app.use(express.urlencoded({
 }))
 app.use(expressLayouts)
 app.use(express.static(__dirname))
-app.use(__dirname + '/companies', indexRouter)
+app.use('/companies', indexRouter)
 app.use('/companies/apply', applicationRouter)
 app.use('/companies/apply', successRouter)
 
