@@ -20,6 +20,7 @@ const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(cors());
+dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
@@ -34,9 +35,15 @@ app.use('/companies/apply', successRouter)
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}!`)
 })
-
+console.log(process.env.DB_CONNECTION)
 //connect to DN
-mongoose.connect(
-  ' + process.env.DB_CONNECTION + ',
-  () => console.log('connected to database')
-)
+mongoose
+  .connect(process.env.DB_CONNECTION)
+  .then(x => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
+  })
+  .catch(err => {
+    console.error("Error connecting to mongo", err);
+  });
