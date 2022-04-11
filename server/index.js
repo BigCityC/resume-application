@@ -26,7 +26,7 @@ app.use(express.urlencoded({
   extended: true
 }))
 app.use(expressLayouts)
-app.use(express.static(__dirname))
+app.use(express.static(__dirname + '/public'))
 app.use('/companies', indexRouter)
 app.use('/companies/apply', applicationRouter)
 app.use('/companies/apply', successRouter)
@@ -39,6 +39,5 @@ app.listen(PORT, () => {
 //connect to DN
 mongoose.connect(
   ' + process.env.DB_CONNECTION + ',
-  {useNewUrlParser: true, useUnifiedTopology: true},
   () => console.log('connected to database')
 )

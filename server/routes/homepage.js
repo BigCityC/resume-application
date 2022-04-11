@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.get('/',  async (req, res) => {
   const data = await Company.find();
-  res.render('index', {
+  res.render('homepage', {
     companies: data,
     title: 'Companies Hiring'
   })
