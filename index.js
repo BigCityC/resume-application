@@ -26,7 +26,7 @@ app.use(express.urlencoded({
   extended: true
 }))
 app.use(expressLayouts)
-app.use(express.static(__dirname + '/public'))
+app.use(express.static('/public'))
 app.use('/', indexRouter)
 app.use('/companies/apply', applicationRouter)
 app.use('/companies/apply', successRouter)
