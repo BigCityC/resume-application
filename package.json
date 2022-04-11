@@ -15,7 +15,8 @@
   "type": "module",
   "scripts": {
     "start": "node server/server.js",
-    "dev": "server/node_modules/.bin/nodemon server.js"
+    "dev": "nodemon server/server.js",
+    "postinstall": "ng build"
   },
   "author": "",
   "license": "ISC",
