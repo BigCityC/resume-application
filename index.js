@@ -12,7 +12,6 @@ import { successRouter } from './routes/success.js'
 
 //setup
 const app = express()
-dotenv.config();
 app.set('view engine', 'ejs')
 app.set('views', './views')
 app.set('layout', 'layouts/layout')
@@ -27,7 +26,7 @@ app.use(express.urlencoded({
 }))
 app.use(expressLayouts)
 app.use(express.static(__dirname + '/public'))
-app.use('/companies', indexRouter)
+app.use('/', indexRouter)
 app.use('/companies/apply', applicationRouter)
 app.use('/companies/apply', successRouter)
 
