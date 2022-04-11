@@ -12,6 +12,7 @@ import { successRouter } from './routes/success.js'
 
 //setup
 const app = express()
+dotenv.config();
 app.set('view engine', 'ejs')
 app.set('views', './views')
 app.set('layout', 'layouts/layout')
@@ -29,7 +30,6 @@ app.use(express.static(__dirname))
 app.use('/companies', indexRouter)
 app.use('/companies/apply', applicationRouter)
 app.use('/companies/apply', successRouter)
-dotenv.config();
 
 //listen to server
 app.listen(PORT, () => {
@@ -39,5 +39,6 @@ app.listen(PORT, () => {
 //connect to DN
 mongoose.connect(
   process.env.DB_CONNECTION,
+  {useNewUrlParser: true, useUnifiedTopology: true},
   () => console.log('connected to database')
 )

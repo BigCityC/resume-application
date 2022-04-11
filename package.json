@@ -19,5 +19,13 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigCityC/resume-application.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BigCityC/resume-application/issues"
+  },
+  "homepage": "https://github.com/BigCityC/resume-application#readme",
   "description": ""
 }
