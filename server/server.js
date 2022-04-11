@@ -17,7 +17,7 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 app.set('layout', 'layouts/layout')
 app.set('public', './public')
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(cors());
