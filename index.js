@@ -27,16 +27,21 @@ app.use(express.urlencoded({
 }))
 app.use(expressLayouts)
 app.use(express.static(__dirname+'/public'))
-app.use('/', indexRouter)
+app.use('/companies', indexRouter)
 app.use('/companies/apply', applicationRouter)
 app.use('/companies/apply', successRouter)
+
+
+app.get('/', (req, res) => {
+  res.redirect('/companies');
+});
 
 //listen to server
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}!`)
 })
 console.log(process.env.DB_CONNECTION)
-//connect to DN
+//connect to DB
 mongoose
   .connect(process.env.DB_CONNECTION)
   .then(x => {
