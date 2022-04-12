@@ -21,7 +21,7 @@ body {
   color: #051534;
 }
 .header .background-image {
-  background: url("/public/img/background-header.jpg") no-repeat center center;
+  background: url("/img/background-header.jpg") no-repeat center center;
   background-size: cover;
   opacity: 0.5;
   position: absolute;
